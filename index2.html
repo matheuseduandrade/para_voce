@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Você 💖</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffe6e6;
+            color: #d63384;
+            padding: 20px;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        img {
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff66b2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #ff3385;
+        }
+    </style>
+</head>
+<body>
+    <h1>Para Você 💖</h1>
+    <div class="content">
+        <p id="message">Clique no botão para ver uma surpresa!</p>
+        <img id="photo" src="" style="display: none;">
+    </div>
+    <br>
+    <button onclick="showMessage()">Me Surpreenda!</button>
+    
+    <script>
+        const messagesAndPhotos = [
+            { message: "Você é incrível! 💕", photo: "imagens/foto1.jpg" },
+            { message: "Seu sorriso ilumina meu dia! 😊", photo: "imagens/foto2.jpg" },
+            { message: "Se um dia você acordar e não se sentir especial, me avisa. Eu vou lembrar todos os motivos pelos quais você é a pessoa mais incrível", photo: "imagens/foto3.jpg" }
+        ];
+
+        let currentIndex = 0;
+
+        function showMessage() {
+            const item = messagesAndPhotos[currentIndex];
+            document.getElementById("message").innerText = item.message;
+            
+            const imgElement = document.getElementById("photo");
+            imgElement.src = item.photo;
+            imgElement.style.display = "block";
+            
+            currentIndex = (currentIndex + 1) % messagesAndPhotos.length;
+        }
+    </script>
+</body>
+</html>
